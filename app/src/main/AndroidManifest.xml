@@ -4,21 +4,23 @@
     package="com.example.farmstation">
 
     <!-- Request legacy Bluetooth permissions on older devices. -->
-    <uses-permission android:name="android.permission.BLUETOOTH"
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
         android:maxSdkVersion="30" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
         android:maxSdkVersion="30" />
-
-    <!-- Include "neverForLocation" only if you can strongly assert that
-         your app never derives physical location from Bluetooth scan results. -->
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+    <!--
+ Include "neverForLocation" only if you can strongly assert that
+         your app never derives physical location from Bluetooth scan results.
+    -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
         android:usesPermissionFlags="neverForLocation" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
 
     <application
         android:allowBackup="true"
@@ -29,7 +31,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FarmStation"
-        tools:targetApi="31">
+        tools:targetApi="30">
+        <service
+            android:name=".BTServices"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".BTSetting"
             android:exported="false" />
